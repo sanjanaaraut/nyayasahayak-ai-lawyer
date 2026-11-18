@@ -45,7 +45,6 @@ with st.sidebar:
         "AI Model (Swappable)",
         ["gemini-3.5-flash-lite", "gemini-3.6-flash", "gemini-3.8-flash", "gemini-3.1-pro-preview"],
     )
-    )
     language = st.selectbox(
         "Preferred Language",
         ["Auto-detect from my story", "English", "Hindi", "Hinglish", "Malayalam", "Tamil", "Bengali", "Marathi"],
