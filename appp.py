@@ -41,7 +41,7 @@ with st.sidebar:
         st.success("API Key connected")
     else:
         api_key = st.text_input("Gemini API Key", type="password", help="Get a free key at aistudio.google.com")
-   model_name = st.selectbox(
+    model_name = st.selectbox(
         "AI Model (Swappable)",
         ["gemini-3.5-flash-lite", "gemini-3.6-flash", "gemini-3.8-flash", "gemini-3.1-pro-preview"],
     )
