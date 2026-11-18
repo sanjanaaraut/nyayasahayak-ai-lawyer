@@ -31,8 +31,16 @@ SAMPLES = {
 # --- Sidebar: Settings & Scope ---
 with st.sidebar:
     st.title("⚙️ Settings")
-    default_key = os.environ.get("GEMINI_API_KEY", "")
-    api_key = st.text_input("Gemini API Key", value=default_key, type="password", help="Get a free key at aistudio.google.com")
+    try:
+        default_key = st.secrets.get("GEMINI_API_KEY", os.environ.get("GEMINI_API_KEY", ""))
+    except Exception:
+        default_key = os.environ.get("GEMINI_API_KEY", "")
+
+    if default_key:
+        api_key = default_key
+        st.success("API Key connected")
+    else:
+        api_key = st.text_input("Gemini API Key", type="password", help="Get a free key at aistudio.google.com")
     model_name = st.selectbox(
         "AI Model (Swappable)",
         ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-3.1-pro-preview"],
